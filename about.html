@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - A. PREMA & CO</title>
+    <meta name="description" content="Learn about our firm's history, philosophy, and meet our dedicated legal team at A. PREMA & CO.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333333;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .gold-underline {
+            position: relative;
+            display: inline-block;
+        }
+        .gold-underline:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #D4AF37;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .gold-underline:hover:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .tilt-card {
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        .tilt-card:hover {
+            transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #D4AF37;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-[#0a192f] font-playfair">
+                <span class="gold-underline">A. PREMA & CO</span>
+            </a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-[#0a192f] hover:text-[#D4AF37]">Home</a>
+                    <a href="about.html" class="nav-link text-[#D4AF37] font-semibold">About Us</a>
+                    <a href="practice-areas.html" class="nav-link text-[#0a192f] hover:text-[#D4AF37]">Practice Areas</a>
+                    <a href="contact.html" class="nav-link text-[#0a192f] hover:text-[#D4AF37]">Contact Us</a>
+                </nav>
+                <div class="hidden md:block">
+                    <a href="contact.html" class="bg-[#D4AF37] hover:bg-[#c19e30] text-white px-6 py-2 rounded-md transition duration-300">Get in Touch</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-[#0a192f] focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="md:hidden fixed inset-0 bg-[#0a192f] bg-opacity-90 z-40 flex items-center justify-center hidden" id="mobileMenu">
+        <div class="text-center">
+            <a href="index.html" class="block text-white text-xl py-4 hover:text-[#D4AF37] transition">Home</a>
+            <a href="about.html" class="block text-[#D4AF37] text-xl py-4 transition">About Us</a>
+            <a href="practice-areas.html" class="block text-white text-xl py-4 hover:text-[#D4AF37] transition">Practice Areas</a>
+            <a href="contact.html" class="block text-white text-xl py-4 hover:text-[#D4AF37] transition">Contact Us</a>
+            <a href="contact.html" class="inline-block mt-6 bg-[#D4AF37] hover:bg-[#c19e30] text-white px-6 py-2 rounded-md transition duration-300">Get in Touch</a>
+        </div>
+    </div>
+
+
+    <main>
+        <section class="relative text-white" style="background-image: url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1500&q=80'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="absolute inset-0 bg-[#0a192f] opacity-80"></div>
+
+    <div class="relative container mx-auto px-6 pt-32 pb-16 md:pt-40 md:pb-24 text-center fade-in">
+        <h1 class="text-4xl md:text-6xl font-bold text-white">Our Story, Your Advantage</h1>
+        <p class="text-xl text-gray-300 mt-4 max-w-3xl mx-auto">Discover the people and principles that define A. Prema & Co.</p>
+    </div>
+</section>
+
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-3xl font-bold text-[#0a192f]">Our Journey</h2>
+                    <div class="w-20 h-1 bg-[#D4AF37] mx-auto mt-4 mb-6"></div>
+                </div>
+                
+                <div class="relative max-w-4xl mx-auto">
+                    <div class="absolute left-4 md:left-1/2 w-1 h-full bg-gray-200 -translate-x-1/2"></div>
+                    
+                    <div class="relative pl-12 md:pl-0 mb-12 fade-in">
+                        <div class="md:flex items-center">
+                            <div class="md:w-1/2 md:pr-8 md:text-right">
+                                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                                    <p class="text-[#D4AF37] font-semibold mb-2 text-left md:text-right">2018</p>
+                                    <h3 class="text-2xl font-bold text-[#0a192f] text-left md:text-right">Firm Founded</h3>
+                                    <p class="text-gray-600 mt-2 text-left md:text-right">A. Prema & Co began its journey in Taman Medan, Petaling Jaya, with a mission to help individuals and businesses handle their legal matters with confidence.</p>
+                                </div>
+                            </div>
+                             <div class="absolute top-1/2 -translate-y-1/2 left-4 md:left-1/2 w-4 h-4 rounded-full bg-[#D4AF37] border-4 border-white -translate-x-1/2"></div>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-12 md:pl-0 mb-12 fade-in">
+                        <div class="md:flex items-center">
+                            <div class="hidden md:block md:w-1/2"></div> <div class="md:w-1/2 md:pl-8">
+                                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                                    <p class="text-[#D4AF37] font-semibold mb-2">2025</p>
+                                    <h3 class="text-2xl font-bold text-[#0a192f]">Welcoming a Partner</h3>
+                                    <p class="text-gray-600 mt-2">To broaden our scope of litigation, Ms. Laviania Pathmanathan joined the firm as a Partner, bringing vast experience and a passion for fighting for the common man.</p>
+                                </div>
+                            </div>
+                             <div class="absolute top-1/2 -translate-y-1/2 left-4 md:left-1/2 w-4 h-4 rounded-full bg-[#D4AF37] border-4 border-white -translate-x-1/2"></div>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-12 md:pl-0 mb-12 fade-in">
+                        <div class="md:flex items-center">
+                            <div class="md:w-1/2 md:pr-8 md:text-right">
+                                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                                    <p class="text-[#D4AF37] font-semibold mb-2 text-left md:text-right">Today</p>
+                                    <h3 class="text-2xl font-bold text-[#0a192f] text-left md:text-right">Continuing Our Mission</h3>
+                                    <p class="text-gray-600 mt-2 text-left md:text-right">We continue to grow, driven by a strong belief in doing things right with passion, care, and results that matter for our clients.</p>
+                                </div>
+                            </div>
+                            <div class="absolute top-1/2 -translate-y-1/2 left-4 md:left-1/2 w-4 h-4 rounded-full bg-[#D4AF37] border-4 border-white -translate-x-1/2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-3xl font-bold text-[#0a192f]">Meet The Founder</h2>
+                    <div class="w-20 h-1 bg-[#D4AF37] mx-auto mt-4 mb-6"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-12 items-center fade-in">
+                    <div class="md:col-span-2 flex justify-center">
+                        <div class="tilt-card shadow-xl rounded-lg overflow-hidden">
+                           <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2" alt="Prema Arunasalam - Founder of A. Prema & Co" class="w-full h-auto max-w-sm object-cover">
+                        </div>
+                    </div>
+                    <div class="md:col-span-3">
+                        <h3 class="text-3xl font-bold text-[#0a192f]">Prema Arunasalam</h3>
+                        <p class="text-xl text-[#D4AF37] font-medium mb-6">LL.M (Malaya), LLB (Hons) MMU, LLB (UOL)</p>
+                        <div class="space-y-4 text-gray-600">
+                            <p>Prema Arunasalam is the founder of A. Prema & Co. She began her journey as a legal clerk in Messrs. A.G. Kalidas & Co, gaining valuable experience in litigation matters.</p>
+                            <p>She completed her LLB (Hons) at Multimedia University and later pursued her LL.M at University of Malaya. Prema did her pupillage under Mr A.G Kalidas, where she handled a variety of cases including civil litigation, family law, and conveyancing matters.</p>
+                            <p>Prema is a person who believes in carrying high ethical standards and integrity of the profession. Her approach combines legal expertise with genuine care for clients' wellbeing, ensuring they feel supported throughout their legal journey.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-3xl font-bold text-[#0a192f]">Meet Our Partner</h2>
+                    <div class="w-20 h-1 bg-[#D4AF37] mx-auto mt-4 mb-6"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-12 items-center fade-in">
+                    <div class="md:col-span-3 order-last md:order-first">
+                        <h3 class="text-3xl font-bold text-[#0a192f]">Ms Laviania Pathmanathan</h3>
+                        <p class="text-xl text-[#D4AF37] font-medium mb-6">LLB (Hons) (UKM), LLM (UM)</p>
+                        <div class="space-y-4 text-gray-600">
+                           <p>Ms Laviania Pathmanathan graduated from the National University of Malaysia with an LLB (Hons) and later obtained her LLM from University of Malaya. Being a polyglot fluent in English, Bahasa Malaysia, Tamil, and Hindi, she connects well with clients from diverse backgrounds.</p>
+                           <p>She began her legal career at Messrs. Sreenevasan Young & Aminuddin, specializing in civil litigation. She later ran her own firm, gaining extensive experience before joining A Prema & Co on 1st February 2025 as a Partner.</p>
+                           <p>Ms Laviania is known for her meticulous approach and her dedication to ensuring justice is served. Her passion for advocating for the underprivileged aligns perfectly with the firm's mission.</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 flex justify-center order-first md:order-last">
+                        <div class="tilt-card shadow-xl rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ms Laviania Pathmanathan - Partner at A. Prema & Co" class="w-full h-auto max-w-sm object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-3xl font-bold text-[#0a192f]">Nurturing Future Talent</h2>
+                    <div class="w-20 h-1 bg-[#D4AF37] mx-auto mt-4 mb-6"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-12 items-center fade-in">
+                    <div class="md:col-span-2 flex justify-center">
+                         <div class="tilt-card shadow-xl rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Prakash Ravi - Chambering student at A. Prema & Co" class="w-full h-auto max-w-sm object-cover">
+                        </div>
+                    </div>
+                    <div class="md:col-span-3">
+                        <h3 class="text-3xl font-bold text-[#0a192f]">Prakash Ravi</h3>
+                        <p class="text-xl text-[#D4AF37] font-medium mb-6">Chambering Student</p>
+                        <div class="space-y-4 text-gray-600">
+                           <p>Prakash Ravi is currently undergoing his pupillage at A. Prema & Co, where he is gaining hands-on experience in various legal matters under the guidance of our senior lawyers.</p>
+                           <p>During his pupillage, Prakash has demonstrated exceptional dedication and a keen interest in civil litigation. He assists with legal research, drafting documents, and client consultations, showing great promise in his legal career.</p>
+                           <p>His enthusiasm and commitment to the profession make him a valuable addition to our team as we invest in the next generation of legal professionals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <section class="relative text-white" style="background-image: url('https://images.unsplash.com/photo-1593115057322-e94b77572f20?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="absolute inset-0 bg-[#0a192f] opacity-80"></div>
+
+    <div class="relative container mx-auto px-6 py-20 text-center fade-in">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to find a solution? Let's talk.</h2>
+        <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Our team is ready to assist you with your legal needs. Schedule a consultation today.</p>
+        <a href="contact.html" class="bg-[#D4AF37] hover:bg-yellow-400 text-[#0a192f] font-bold px-8 py-3 rounded-md text-lg transition duration-300 inline-block">Schedule a Consultation</a>
+    </div>
+</section>
+    </main>
+
+    <footer class="bg-[#0a192f] text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">A. PREMA & CO</h3>
+                    <p class="text-gray-300">Advocates & Solicitors you can trust for innovative and effective legal solutions.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Address</h3>
+                    <p class="text-gray-300">10-1, Jalan PJS 2D/1, Taman Medan, 46000 Petaling Jaya, Selangor</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <p class="text-gray-300 mb-2">Email: advocprema@gmail.com</p>
+                    <p class="text-gray-300">Phone: 012 922 8735 / 03 7499 5446</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-[#D4AF37] transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-[#D4AF37] transition">About Us</a></li>
+                        <li><a href="practice-areas.html" class="text-gray-300 hover:text-[#D4AF37] transition">Practice Areas</a></li>
+                        <li><a href="articles.html" class="text-gray-300 hover:text-[#D4AF37] transition">Articles</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-[#D4AF37] transition">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 A. PREMA & CO. All Rights Reserved. | <a href="#" class="hover:text-[#D4AF37] transition">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        });
+
+        // --- Close mobile menu when clicking a link ---
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            });
+        });
+
+        // --- Scroll animation ---
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
