@@ -1,103 +1,385 @@
-import Image from "next/image";
+"use client";
+
+import Image from 'next/image';
+import Link from 'next/link';
+import AnimatedSection from '@/app/components/AnimatedSection';
+import ContactForm from '@/app/components/ContactForm';
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <main>
+        {/* Hero Section */}
+        <section
+          className="hero-section"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1505664194779-8beaceb93744')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed',
+          }}
+        >
+          <div className="hero-content-wrapper flex flex-col md:flex-row min-h-screen items-stretch">
+            <div className="relative md:w-3/5 text-white px-8 pb-8 pt-24 md:p-16 flex flex-col justify-center">
+              <div className="relative z-10">
+                <h1 className="text-4xl md:text-6xl font-bold font-oswald mb-6">
+                  Innovative, fresh and effective problem-solving.
+                </h1>
+                <p className="text-xl md:text-2xl mb-10 text-gray-300 font-montserrat">
+                  We help individuals and businesses handle their legal matters with confidence.
+                </p>
+                <Link href="/practice-areas" className="bg-[#D4AF37] hover:bg-[#c19e30] text-black font-bold py-4 px-8 rounded-md text-lg transition duration-300 inline-block font-oswald uppercase tracking-wider">
+                  Explore Our Services
+                </Link>
+              </div>
+            </div>
+            <div className="md:hidden w-4/5 mx-auto h-px bg-[#D4AF37] my-8 opacity-50"></div>
+            <div className="relative md:w-2/5 right-content-panel py-16 md:py-0 md:h-auto min-h-[50vh]">
+              <div className="hidden md:block absolute left-0 top-0 h-full w-px bg-[#D4AF37] opacity-50"></div>
+              <Image src="/2.png" alt="Statue of Lady Justice" width={500} height={800} className="lady-justice-image" priority />
+            </div>
+          </div>
+        </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+        {/* Introduction Section */}
+        <section id="about" className="py-20 bg-white">
+          <div className="container mx-auto px-6">
+            <AnimatedSection className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0a192f] mb-4">Handling Your Legal Matters With Confidence Since 2018</h2>
+              <div className="w-20 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
+            </AnimatedSection>
+            <AnimatedSection className="flex flex-col md:flex-row items-center">
+              <div className="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                <p className="text-lg mb-6">A. Prema & Co began its journey in 2018 with the vision to provide quality legal services to the community. Founded by Prema Arunasalam, the firm has grown steadily, adding Ms. Laviania Pathmanathan as a partner in 2025.</p>
+                <p className="text-lg mb-6">Our firm is located at 10-1, Jalan PJS 2D/1, Taman Medan, 46000 Petaling Jaya, Selangor, where we serve clients with dedication and professionalism.</p>
+                <p className="text-lg">We believe in building lasting relationships with our clients by providing personalized attention and tailored legal solutions for each unique situation.</p>
+              </div>
+              <div className="md:w-1/2 shadow-xl rounded-lg overflow-hidden tilt-card">
+                <Image src="https://images.unsplash.com/photo-1505663912202-ac22d4cb3707?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Law Office" width={1170} height={780} className="w-full h-auto" />
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* Core Values Section */}
+        <section className="py-20 bg-gray-50">
+          <div className="container mx-auto px-6">
+            <AnimatedSection className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0a192f] mb-4">Our Core Values</h2>
+              <div className="w-20 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
+            </AnimatedSection>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              <AnimatedSection className="bg-white p-8 rounded-lg shadow-md text-center tilt-card">
+                <div className="text-5xl text-[#D4AF37] mb-6"><i className="fas fa-user-tie"></i></div>
+                <h3 className="text-2xl font-bold text-[#0a192f] mb-4">All About "YOU"</h3>
+                <p className="text-gray-600">We will assist you in all legal way by listing the best solution for you. Your needs and objectives are at the center of everything we do.</p>
+              </AnimatedSection>
+              <AnimatedSection className="bg-white p-8 rounded-lg shadow-md text-center tilt-card" delay="0.2s">
+                <div className="text-5xl text-[#D4AF37] mb-6"><i className="fas fa-hands-helping"></i></div>
+                <h3 className="text-2xl font-bold text-[#0a192f] mb-4">We "Walk the Talk"</h3>
+                <p className="text-gray-600">We represent words with action. Our commitments are backed by diligent work and measurable results that you can count on.</p>
+              </AnimatedSection>
+              <AnimatedSection className="bg-white p-8 rounded-lg shadow-md text-center tilt-card" delay="0.4s">
+                <div className="text-5xl text-[#D4AF37] mb-6"><i className="fas fa-trophy"></i></div>
+                <h3 className="text-2xl font-bold text-[#0a192f] mb-4">Driven by Results</h3>
+                <p className="text-gray-600">A strong belief in doing things right with passion, care, and results that matter. We measure our success by your satisfaction.</p>
+              </AnimatedSection>
+            </div>
+          </div>
+        </section>
+
+        {/* Practice Areas Section */}
+        <section id="practice" className="py-20 bg-white">
+          <div className="container mx-auto px-6">
+            <AnimatedSection className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0a192f] mb-4">Our Practice Areas</h2>
+              <div className="w-20 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">We offer comprehensive legal services across various practice areas to meet your diverse needs.</p>
+            </AnimatedSection>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              <AnimatedSection className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-lg transition duration-300">
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-home"></i></div>
+                  <h3 className="text-xl font-bold text-[#0a192f] mb-3">CONVEYANCING</h3>
+                  <p className="text-gray-600">Expert handling of property transactions including sales, purchases, and mortgages with meticulous attention to detail.</p>
+              </AnimatedSection>
+              <AnimatedSection className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-lg transition duration-300" delay="0.1s">
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-users"></i></div>
+                  <h3 className="text-xl font-bold text-[#0a192f] mb-3">FAMILY MATTERS</h3>
+                  <p className="text-gray-600">Compassionate representation in divorce, child custody, and other sensitive family law matters.</p>
+              </AnimatedSection>
+              <AnimatedSection className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-lg transition duration-300" delay="0.2s">
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-user-md"></i></div>
+                  <h3 className="text-xl font-bold text-[#0a192f] mb-3">MEDICAL NEGLIGENCE</h3>
+                  <p className="text-gray-600">Assertive advocacy for victims of medical malpractice to secure fair compensation.</p>
+              </AnimatedSection>
+              <AnimatedSection className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-lg transition duration-300" delay="0.3s">
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-car-crash"></i></div>
+                  <h3 className="text-xl font-bold text-[#0a192f] mb-3">ACCIDENT CLAIMS</h3>
+                  <p className="text-gray-600">Tenacious pursuit of compensation for victims of motor vehicle and workplace accidents.</p>
+              </AnimatedSection>
+              <AnimatedSection className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-lg transition duration-300" delay="0.4s">
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-gavel"></i></div>
+                  <h3 className="text-xl font-bold text-[#0a192f] mb-3">CRIMINAL DEFENSE</h3>
+                  <p className="text-gray-600">Strategic defense for criminal charges at all levels, protecting your rights throughout the legal process.</p>
+              </AnimatedSection>
+              <AnimatedSection className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-lg transition duration-300" delay="0.5s">
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-briefcase"></i></div>
+                  <h3 className="text-xl font-bold text-[#0a192f] mb-3">CORPORATE LITIGATION</h3>
+                  <p className="text-gray-600">Effective representation in business disputes, contract enforcement, and commercial litigation.</p>
+              </AnimatedSection>
+            </div>
+            <AnimatedSection className="text-center mt-12">
+              <Link href="/practice-areas" className="inline-block border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white px-8 py-3 rounded-md text-lg transition duration-300">View All Practice Areas</Link>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* Meet the Team Section */}
+        <section id="team" className="py-20 bg-gray-50">
+          <div className="container mx-auto px-6">
+            <AnimatedSection className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0a192f] mb-4">Our People, Your Advocates</h2>
+              <div className="w-20 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">Meet our dedicated team of legal professionals committed to serving your needs.</p>
+            </AnimatedSection>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <AnimatedSection className="team-card bg-white rounded-lg overflow-hidden shadow-md relative">
+                <Image src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Prema Arunasalam" width={688} height={860} className="w-full h-80 object-cover" />
+                <div className="team-overlay">
+                  <h3 className="text-2xl font-bold mb-2">Prema Arunasalam</h3>
+                  <p className="text-[#D4AF37] mb-4">Founder & Advocate</p>
+                  <Link href="/our-team/prema-arunasalam" className="text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-[#0a192f] transition">View Profile</Link>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-[#0a192f] mb-2">Prema Arunasalam</h3>
+                  <p className="text-[#D4AF37] mb-4">Founder & Advocate</p>
+                </div>
+              </AnimatedSection>
+              <AnimatedSection className="team-card bg-white rounded-lg overflow-hidden shadow-md relative" delay="0.2s">
+                <Image src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ms Laviania Pathmanathan" width={1470} height={980} className="w-full h-80 object-cover" />
+                <div className="team-overlay">
+                  <h3 className="text-2xl font-bold mb-2">Ms Laviania Pathmanathan</h3>
+                  <p className="text-[#D4AF37] mb-4">Partner & Solicitor</p>
+                  <Link href="/our-team/laviania-pathmanathan" className="text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-[#0a192f] transition">View Profile</Link>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-[#0a192f] mb-2">Ms Laviania Pathmanathan</h3>
+                  <p className="text-[#D4AF37] mb-4">Partner & Solicitor</p>
+                </div>
+              </AnimatedSection>
+              <AnimatedSection className="team-card bg-white rounded-lg overflow-hidden shadow-md relative" delay="0.4s">
+                <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Prakash Ravi" width={687} height={859} className="w-full h-80 object-cover" />
+                <div className="team-overlay">
+                  <h3 className="text-2xl font-bold mb-2">Prakash Ravi</h3>
+                  <p className="text-[#D4AF37] mb-4">Chambering Student</p>
+                  <Link href="/our-team/prakash-ravi" className="text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-[#0a192f] transition">View Profile</Link>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-[#0a192f] mb-2">Prakash Ravi</h3>
+                  <p className="text-[#D4AF37] mb-4">Chambering Student</p>
+                </div>
+              </AnimatedSection>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact CTA Section */}
+        <section className="relative text-white" style={{backgroundImage: "url('https://images.unsplash.com/photo-1593115057322-e94b77572f20?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}>
+          <div className="absolute inset-0 bg-[#0a192f] opacity-80"></div>
+          <AnimatedSection className="relative container mx-auto px-6 py-20 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to find a solution? Let's talk.</h2>
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Our team is ready to assist you with your legal needs. Schedule a consultation today.</p>
+            <Link href="/contact" className="bg-[#D4AF37] hover:bg-yellow-400 text-[#0a192f] font-bold px-8 py-3 rounded-md text-lg transition duration-300 inline-block">Schedule a Consultation</Link>
+          </AnimatedSection>
+        </section>
+
+        {/* Contact Us Section */}
+        <section id="contact" className="py-20 bg-white">
+          <div className="container mx-auto px-6">
+            <AnimatedSection className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0a192f] mb-4">Contact Us</h2>
+              <div className="w-20 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">Get in touch with our team for expert legal advice and representation.</p>
+            </AnimatedSection>
+            <div className="flex flex-col lg:flex-row gap-12">
+              <AnimatedSection className="lg:w-1/2">
+                <h3 className="text-2xl font-bold text-[#0a192f] mb-6">Get in Touch</h3>
+                <div className="space-y-6">
+                    <div className="flex items-start">
+                      <div className="text-[#D4AF37] text-xl mr-4 mt-1"><i className="fas fa-map-marker-alt"></i></div>
+                      <div>
+                        <h4 className="font-bold text-lg text-[#0a192f]">Address</h4>
+                        <p className="text-gray-600">10-1, Jalan PJS 2D/1, Taman Medan, 46000 Petaling Jaya, Selangor</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="text-[#D4AF37] text-xl mr-4 mt-1"><i className="fas fa-envelope"></i></div>
+                      <div>
+                        <h4 className="font-bold text-lg text-[#0a192f]">Email</h4>
+                        <p className="text-gray-600">advocprema@gmail.com</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="text-[#D4AF37] text-xl mr-4 mt-1"><i className="fas fa-phone-alt"></i></div>
+                      <div>
+                        <h4 className="font-bold text-lg text-[#0a192f]">Phone</h4>
+                        <p className="text-gray-600">012 922 8735 / 03 7499 5446</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="text-[#D4AF37] text-xl mr-4 mt-1"><i className="fas fa-clock"></i></div>
+                      <div>
+                        <h4 className="font-bold text-lg text-[#0a192f]">Hours</h4>
+                        <p className="text-gray-600">Mon - Fri, 9:00 AM - 5:30 PM</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-10 bg-gray-50 p-6 rounded-lg">
+                    <div className="flex items-center">
+                      <div className="bg-white p-2 rounded mr-4">
+                        <Image src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.waze.com/ul?ll=3.0789,101.6382&navigate=yes" alt="QR Code" width={96} height={96} className="w-24 h-24" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-lg text-[#0a192f] mb-2">Scan for Waze Directions</h4>
+                        <p className="text-gray-600">Scan this QR code with your smartphone to get directions to our office.</p>
+                      </div>
+                    </div>
+                  </div>
+              </AnimatedSection>
+              <AnimatedSection className="lg:w-1/2">
+                <h3 className="text-2xl font-bold text-[#0a192f] mb-6">Send Us a Message</h3>
+                <ContactForm />
+              </AnimatedSection>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+      <style jsx global>{`
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333333;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .gold-underline {
+            position: relative;
+            display: inline-block;
+        }
+        .gold-underline:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #D4AF37;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .gold-underline:hover:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .tilt-card {
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        .tilt-card:hover {
+            transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .font-oswald { font-family: 'Oswald', sans-serif; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(13, 16, 24, 0.90);
+            z-index: 1;
+        }
+        .hero-content-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+        .right-content-panel {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(30, 30, 30, 0.6);
+            box-shadow: inset 5px 0 15px -5px rgba(0,0,0,0.5);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .lady-justice-image {
+            animation: float 6s ease-in-out infinite;
+            max-width: 80%;
+            height: auto;
+            filter: drop-shadow(0 0 1rem rgba(0,0,0,0.5));
+        }
+        .team-card {
+            transition: all 0.3s ease;
+        }
+        .team-card:hover .team-overlay {
+            opacity: 1;
+        }
+        .team-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 25, 47, 0.8);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .practice-icon {
+            transition: all 0.3s ease;
+        }
+        .practice-card:hover .practice-icon {
+            transform: translateY(-5px) scale(1.1);
+            color: #D4AF37;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #D4AF37;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+      `}</style>
+    </>
   );
 }
