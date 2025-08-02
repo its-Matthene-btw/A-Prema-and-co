@@ -8,19 +8,38 @@ import ContactForm from '@/app/components/ContactForm';
 import { getFeaturedAdvocates } from '@/sanity/lib/sanity';
 import SanityImage from '@/app/components/SanityImage';
 
-interface SanityImage {
-  _type: 'image';
-  asset: {
-    _ref: string;
-    _type: 'reference';
-  };
-}
+// Import Font Awesome icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faHome,
+  faUsers,
+  faUserMd,
+  faCarCrash,
+  faGavel,
+  faBriefcase,
+  faUserTie,
+  faHandsHelping,
+  faTrophy,
+  faMapMarkerAlt,
+  faEnvelope,
+  faPhoneAlt,
+  faClock
+} from '@fortawesome/free-solid-svg-icons';
 
 interface Advocate {
   _id: string;
   name: string;
   position: string;
-  image: SanityImage;
+  image: {
+    asset: {
+      metadata: {
+        dimensions: {
+          width: number;
+          height: number;
+        };
+      };
+    };
+  };
   slug: { current: string };
 }
 
@@ -121,17 +140,23 @@ export default function Home() {
             </AnimatedSection>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               <AnimatedSection className="bg-white p-8 rounded-lg shadow-md text-center tilt-card">
-                <div className="text-5xl text-[#D4AF37] mb-6"><i className="fas fa-user-tie"></i></div>
+                <div className="text-5xl text-[#D4AF37] mb-6">
+                  <FontAwesomeIcon icon={faUserTie} />
+                </div>
                 <h3 className="text-2xl font-bold text-[#0a192f] mb-4">All About &quot;YOU&quot;</h3>
                 <p className="text-gray-600">We will assist you in all legal way by listing the best solution for you. Your needs and objectives are at the center of everything we do.</p>
               </AnimatedSection>
               <AnimatedSection className="bg-white p-8 rounded-lg shadow-md text-center tilt-card" delay="0.2s">
-                <div className="text-5xl text-[#D4AF37] mb-6"><i className="fas fa-hands-helping"></i></div>
+                <div className="text-5xl text-[#D4AF37] mb-6">
+                  <FontAwesomeIcon icon={faHandsHelping} />
+                </div>
                 <h3 className="text-2xl font-bold text-[#0a192f] mb-4">We &quot;Walk the Talk&quot;</h3>
                 <p className="text-gray-600">We represent words with action. Our commitments are backed by diligent work and measurable results that you can count on.</p>
               </AnimatedSection>
               <AnimatedSection className="bg-white p-8 rounded-lg shadow-md text-center tilt-card" delay="0.4s">
-                <div className="text-5xl text-[#D4AF37] mb-6"><i className="fas fa-trophy"></i></div>
+                <div className="text-5xl text-[#D4AF37] mb-6">
+                  <FontAwesomeIcon icon={faTrophy} />
+                </div>
                 <h3 className="text-2xl font-bold text-[#0a192f] mb-4">Driven by Results</h3>
                 <p className="text-gray-600">A strong belief in doing things right with passion, care, and results that matter. We measure our success by your satisfaction.</p>
               </AnimatedSection>
@@ -149,32 +174,44 @@ export default function Home() {
             </AnimatedSection>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               <AnimatedSection className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-lg transition duration-300">
-                  <div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-home"></i></div>
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4">
+                    <FontAwesomeIcon icon={faHome} />
+                  </div>
                   <h3 className="text-xl font-bold text-[#0a192f] mb-3">CONVEYANCING</h3>
                   <p className="text-gray-600">Expert handling of property transactions including sales, purchases, and mortgages with meticulous attention to detail.</p>
               </AnimatedSection>
               <AnimatedSection className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-lg transition duration-300" delay="0.1s">
-                  <div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-users"></i></div>
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4">
+                    <FontAwesomeIcon icon={faUsers} />
+                  </div>
                   <h3 className="text-xl font-bold text-[#0a192f] mb-3">FAMILY MATTERS</h3>
                   <p className="text-gray-600">Compassionate representation in divorce, child custody, and other sensitive family law matters.</p>
               </AnimatedSection>
               <AnimatedSection className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-lg transition duration-300" delay="0.2s">
-                  <div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-user-md"></i></div>
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4">
+                    <FontAwesomeIcon icon={faUserMd} />
+                  </div>
                   <h3 className="text-xl font-bold text-[#0a192f] mb-3">MEDICAL NEGLIGENCE</h3>
                   <p className="text-gray-600">Assertive advocacy for victims of medical malpractice to secure fair compensation.</p>
               </AnimatedSection>
               <AnimatedSection className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-lg transition duration-300" delay="0.3s">
-                  <div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-car-crash"></i></div>
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4">
+                    <FontAwesomeIcon icon={faCarCrash} />
+                  </div>
                   <h3 className="text-xl font-bold text-[#0a192f] mb-3">ACCIDENT CLAIMS</h3>
                   <p className="text-gray-600">Tenacious pursuit of compensation for victims of motor vehicle and workplace accidents.</p>
               </AnimatedSection>
               <AnimatedSection className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-lg transition duration-300" delay="0.4s">
-                  <div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-gavel"></i></div>
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4">
+                    <FontAwesomeIcon icon={faGavel} />
+                  </div>
                   <h3 className="text-xl font-bold text-[#0a192f] mb-3">CRIMINAL DEFENSE</h3>
                   <p className="text-gray-600">Strategic defense for criminal charges at all levels, protecting your rights throughout the legal process.</p>
               </AnimatedSection>
               <AnimatedSection className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-lg transition duration-300" delay="0.5s">
-                  <div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-briefcase"></i></div>
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4">
+                    <FontAwesomeIcon icon={faBriefcase} />
+                  </div>
                   <h3 className="text-xl font-bold text-[#0a192f] mb-3">CORPORATE LITIGATION</h3>
                   <p className="text-gray-600">Effective representation in business disputes, contract enforcement, and commercial litigation.</p>
               </AnimatedSection>
@@ -210,29 +247,21 @@ export default function Home() {
                 {featuredAdvocates.map((advocate, index) => (
                   <AnimatedSection 
                     key={advocate._id}
-                    className="team-card bg-white rounded-lg overflow-hidden shadow-md"
+                    className="bg-white rounded-lg overflow-hidden shadow-md"
                     delay={`${index * 0.2}s`}
                   >
-                    <div className="relative">
+                    <div className="overflow-hidden">
                       <SanityImage
                         image={advocate.image}
                         alt={advocate.name}
-                        className="w-full h-72 object-cover"
+                        className="w-full h-72 object-cover transition-transform duration-300 hover:scale-105"
+                        width={advocate.image.asset.metadata.dimensions.width}
+                        height={advocate.image.asset.metadata.dimensions.height}
                       />
-                      <div className="team-overlay">
-                        <h3 className="text-2xl font-bold mb-2">{advocate.name}</h3>
-                        <p className="text-[#D4AF37] mb-4">{advocate.position}</p>
-                        <Link 
-                          href={`/our-team/${advocate.slug.current}`}
-                          className="text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-[#0a192f] transition"
-                        >
-                          View Profile
-                        </Link>
-                      </div>
                     </div>
                     <div className="p-6">
                       <h3 className="text-xl font-bold text-[#0a192f] mb-2">{advocate.name}</h3>
-                      <p className="text-[#D4AF37] mb-4">{advocate.position}</p>
+                      <p className="text-[#D4AF37]">{advocate.position}</p>
                     </div>
                   </AnimatedSection>
                 ))}
@@ -268,28 +297,36 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-[#0a192f] mb-6">Get in Touch</h3>
                 <div className="space-y-6">
                     <div className="flex items-start">
-                      <div className="text-[#D4AF37] text-xl mr-4 mt-1"><i className="fas fa-map-marker-alt"></i></div>
+                      <div className="text-[#D4AF37] text-xl mr-4 mt-1">
+                        <FontAwesomeIcon icon={faMapMarkerAlt} />
+                      </div>
                       <div>
                         <h4 className="font-bold text-lg text-[#0a192f]">Address</h4>
                         <p className="text-gray-600">10-1, Jalan PJS 2D/1, Taman Medan, 46000 Petaling Jaya, Selangor</p>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="text-[#D4AF37] text-xl mr-4 mt-1"><i className="fas fa-envelope"></i></div>
+                      <div className="text-[#D4AF37] text-xl mr-4 mt-1">
+                        <FontAwesomeIcon icon={faEnvelope} />
+                      </div>
                       <div>
                         <h4 className="font-bold text-lg text-[#0a192f]">Email</h4>
                         <p className="text-gray-600">advocprema@gmail.com</p>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="text-[#D4AF37] text-xl mr-4 mt-1"><i className="fas fa-phone-alt"></i></div>
+                      <div className="text-[#D4AF37] text-xl mr-4 mt-1">
+                        <FontAwesomeIcon icon={faPhoneAlt} />
+                      </div>
                       <div>
                         <h4 className="font-bold text-lg text-[#0a192f]">Phone</h4>
                         <p className="text-gray-600">012 922 8735 / 03 7499 5446</p>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="text-[#D4AF37] text-xl mr-4 mt-1"><i className="fas fa-clock"></i></div>
+                      <div className="text-[#D4AF37] text-xl mr-4 mt-1">
+                        <FontAwesomeIcon icon={faClock} />
+                      </div>
                       <div>
                         <h4 className="font-bold text-lg text-[#0a192f]">Hours</h4>
                         <p className="text-gray-600">Mon - Fri, 9:00 AM - 5:30 PM</p>
@@ -396,27 +433,6 @@ export default function Home() {
             max-width: 80%;
             height: auto;
             filter: drop-shadow(0 0 1rem rgba(0,0,0,0.5));
-        }
-        .team-card {
-            transition: all 0.3s ease;
-        }
-        .team-card:hover .team-overlay {
-            opacity: 1;
-        }
-        .team-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 25, 47, 0.8);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
         .practice-icon {
             transition: all 0.3s ease;

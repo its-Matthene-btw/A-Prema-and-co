@@ -8,7 +8,6 @@ import SanityImage from '@/app/components/SanityImage';
 import { PortableText } from '@portabletext/react';
 import type { TypedObject } from '@portabletext/types';
 
-// Types remain the same
 type AboutPageData = {
   founderSectionTitle: string;
   founder: Advocate;
@@ -27,6 +26,8 @@ type Advocate = {
       _ref: string;
       url: string;
     };
+    width?: number;
+    height?: number;
   };
   bio: TypedObject[];
 };
@@ -52,7 +53,7 @@ const AboutPage = () => {
   return (
     <>
       <main>
-        {/* Hero Section (Hardcoded) */}
+        {/* Hero Section */}
         <section className="relative text-white" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1500&q=80')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
           <div className="absolute inset-0 bg-[#0a192f] opacity-80"></div>
           <AnimatedSection className="relative container mx-auto px-6 pt-32 pb-16 md:pt-40 md:pb-24 text-center">
@@ -61,7 +62,7 @@ const AboutPage = () => {
           </AnimatedSection>
         </section>
 
-        {/* --- FIX: Restored Hardcoded Journey Section --- */}
+        {/* Journey Section */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-6">
             <AnimatedSection className="text-center mb-16">
@@ -114,7 +115,6 @@ const AboutPage = () => {
             </div>
           </div>
         </section>
-        {/* --- End of Restored Section --- */}
 
         {/* Dynamic Sections */}
         {loading ? (
@@ -134,7 +134,13 @@ const AboutPage = () => {
                   <AnimatedSection className="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
                     <div className="md:col-span-2 flex justify-center">
                       <div className="tilt-card shadow-xl rounded-lg overflow-hidden">
-                        <SanityImage image={data.founder.image} alt={data.founder.name} className="w-full h-auto max-w-sm object-cover" />
+                        <SanityImage 
+                          image={data.founder.image} 
+                          alt={data.founder.name} 
+                          className="w-full h-auto max-w-sm object-cover"
+                          width={600}
+                          height={400}
+                        />
                       </div>
                     </div>
                     <div className="md:col-span-3">
@@ -167,7 +173,13 @@ const AboutPage = () => {
                     </div>
                     <div className="md:col-span-2 flex justify-center order-first md:order-last">
                       <div className="tilt-card shadow-xl rounded-lg overflow-hidden">
-                        <SanityImage image={data.partner.image} alt={data.partner.name} className="w-full h-auto max-w-sm object-cover" />
+                        <SanityImage 
+                          image={data.partner.image} 
+                          alt={data.partner.name} 
+                          className="w-full h-auto max-w-sm object-cover"
+                          width={600}
+                          height={400}
+                        />
                       </div>
                     </div>
                   </AnimatedSection>
@@ -186,7 +198,13 @@ const AboutPage = () => {
                   <AnimatedSection className="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
                     <div className="md:col-span-2 flex justify-center">
                       <div className="tilt-card shadow-xl rounded-lg overflow-hidden">
-                        <SanityImage image={data.talent.image} alt={data.talent.name} className="w-full h-auto max-w-sm object-cover" />
+                        <SanityImage 
+                          image={data.talent.image} 
+                          alt={data.talent.name} 
+                          className="w-full h-auto max-w-sm object-cover"
+                          width={600}
+                          height={400}
+                        />
                       </div>
                     </div>
                     <div className="md:col-span-3">
@@ -203,7 +221,7 @@ const AboutPage = () => {
           </>
         )}
 
-        {/* CTA Section (Hardcoded) */}
+        {/* CTA Section */}
         <section className="relative text-white" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1593115057322-e94b77572f20?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)", backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
           <div className="absolute inset-0 bg-[#0a192f] opacity-80"></div>
           <AnimatedSection className="relative container mx-auto px-6 py-20 text-center">
@@ -214,10 +232,10 @@ const AboutPage = () => {
         </section>
       </main>
 
-      {/* Styles (including animations) */}
+      {/* Styles */}
       <style jsx global>{`
         .prose {
-          --tw-prose-body: #4a5568; /* text-gray-700 */
+          --tw-prose-body: #4a5568;
           --tw-prose-headings: #0a192f;
         }
         .tilt-card {

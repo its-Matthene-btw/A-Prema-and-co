@@ -3,6 +3,22 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import AnimatedSection from '@/app/components/AnimatedSection';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faGavel,
+  faUsers,
+  faCarCrash,
+  faHome,
+  faBalanceScaleRight,
+  faUserMd,
+  faFileSignature,
+  faLandmark,
+  faFolderOpen,
+  faBriefcase,
+  faPassport,
+  faBookReader,
+  faCheckCircle
+} from '@fortawesome/free-solid-svg-icons';
 
 const PracticeAreasPage = () => {
   return (
@@ -12,7 +28,7 @@ const PracticeAreasPage = () => {
         <section
           className="relative text-white"
           style={{
-            backgroundImage: "url(&#39;https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&amp;fit=crop&amp;w=1500&amp;q=80&#39;)",
+            backgroundImage: "url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1500&q=80')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundAttachment: 'fixed',
@@ -33,18 +49,113 @@ const PracticeAreasPage = () => {
               <div className="w-20 h-1 bg-[#D4AF37] mx-auto"></div>
             </AnimatedSection>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              <AnimatedSection><Link href="#area-criminal" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block"><div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-gavel"></i></div><h3 className="text-xl font-bold text-[#0a192f]">CRIMINAL DEFENSE</h3></Link></AnimatedSection>
-              <AnimatedSection delay="0.1s"><Link href="#area-family" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block"><div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-users"></i></div><h3 className="text-xl font-bold text-[#0a192f]">FAMILY MATTERS</h3></Link></AnimatedSection>
-              <AnimatedSection delay="0.2s"><Link href="#area-accident" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block"><div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-car-crash"></i></div><h3 className="text-xl font-bold text-[#0a192f]">ACCIDENT & DISABILITY CLAIMS</h3></Link></AnimatedSection>
-              <AnimatedSection delay="0.3s"><Link href="#area-conveyancing" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block"><div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-home"></i></div><h3 className="text-xl font-bold text-[#0a192f]">CONVEYANCING</h3></Link></AnimatedSection>
-              <AnimatedSection delay="0.4s"><Link href="#area-civil" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block"><div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-balance-scale-right"></i></div><h3 className="text-xl font-bold text-[#0a192f]">LITIGATION OF CIVIL MATTERS</h3></Link></AnimatedSection>
-              <AnimatedSection delay="0.5s"><Link href="#area-medical" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block"><div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-user-md"></i></div><h3 className="text-xl font-bold text-[#0a192f]">MEDICAL NEGLIGENCE</h3></Link></AnimatedSection>
-              <AnimatedSection><Link href="#area-probate" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block"><div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-file-signature"></i></div><h3 className="text-xl font-bold text-[#0a192f]">PROBATE, TRUSTS & WILL</h3></Link></AnimatedSection>
-              <AnimatedSection delay="0.1s"><Link href="#area-banking" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block"><div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-landmark"></i></div><h3 className="text-xl font-bold text-[#0a192f]">BANKING CORPORATE LITIGATION</h3></Link></AnimatedSection>
-              <AnimatedSection delay="0.2s"><Link href="#area-bankruptcy" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block"><div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-folder-open"></i></div><h3 className="text-xl font-bold text-[#0a192f]">BANKRUPTCY & WINDING UP</h3></Link></AnimatedSection>
-              <AnimatedSection delay="0.3s"><Link href="#area-employment" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block"><div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-briefcase"></i></div><h3 className="text-xl font-bold text-[#0a192f]">EMPLOYMENT LAW</h3></Link></AnimatedSection>
-              <AnimatedSection delay="0.4s"><Link href="#area-immigration" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block"><div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-passport"></i></div><h3 className="text-xl font-bold text-[#0a192f]">IMMIGRATION</h3></Link></AnimatedSection>
-              <AnimatedSection delay="0.5s"><Link href="#area-general" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block"><div className="practice-icon text-4xl text-[#0a192f] mb-4"><i className="fas fa-book-reader"></i></div><h3 className="text-xl font-bold text-[#0a192f]">GENERAL LITIGATION</h3></Link></AnimatedSection>
+              <AnimatedSection>
+                <Link href="#area-criminal" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block">
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4">
+                    <FontAwesomeIcon icon={faGavel} />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0a192f]">CRIMINAL DEFENSE</h3>
+                </Link>
+              </AnimatedSection>
+              
+              <AnimatedSection delay="0.1s">
+                <Link href="#area-family" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block">
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4">
+                    <FontAwesomeIcon icon={faUsers} />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0a192f]">FAMILY MATTERS</h3>
+                </Link>
+              </AnimatedSection>
+
+              <AnimatedSection delay="0.2s">
+                <Link href="#area-accident" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block">
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4">
+                    <FontAwesomeIcon icon={faCarCrash} />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0a192f]">ACCIDENT & DISABILITY CLAIMS</h3>
+                </Link>
+              </AnimatedSection>
+
+              <AnimatedSection delay="0.3s">
+                <Link href="#area-conveyancing" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block">
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4">
+                    <FontAwesomeIcon icon={faHome} />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0a192f]">CONVEYANCING</h3>
+                </Link>
+              </AnimatedSection>
+
+              <AnimatedSection delay="0.4s">
+                <Link href="#area-civil" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block">
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4">
+                    <FontAwesomeIcon icon={faBalanceScaleRight} />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0a192f]">LITIGATION OF CIVIL MATTERS</h3>
+                </Link>
+              </AnimatedSection>
+
+              <AnimatedSection delay="0.5s">
+                <Link href="#area-medical" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block">
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4">
+                    <FontAwesomeIcon icon={faUserMd} />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0a192f]">MEDICAL NEGLIGENCE</h3>
+                </Link>
+              </AnimatedSection>
+
+              <AnimatedSection>
+                <Link href="#area-probate" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block">
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4">
+                    <FontAwesomeIcon icon={faFileSignature} />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0a192f]">PROBATE, TRUSTS &amp; WILL</h3>
+                </Link>
+              </AnimatedSection>
+
+              <AnimatedSection delay="0.1s">
+                <Link href="#area-banking" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block">
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4">
+                    <FontAwesomeIcon icon={faLandmark} />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0a192f]">BANKING CORPORATE LITIGATION</h3>
+                </Link>
+              </AnimatedSection>
+
+              <AnimatedSection delay="0.2s">
+                <Link href="#area-bankruptcy" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block">
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4">
+                    <FontAwesomeIcon icon={faFolderOpen} />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0a192f]">BANKRUPTCY & WINDING UP</h3>
+                </Link>
+              </AnimatedSection>
+
+              <AnimatedSection delay="0.3s">
+                <Link href="#area-employment" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block">
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4">
+                    <FontAwesomeIcon icon={faBriefcase} />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0a192f]">EMPLOYMENT LAW</h3>
+                </Link>
+              </AnimatedSection>
+
+              <AnimatedSection delay="0.4s">
+                <Link href="#area-immigration" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block">
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4">
+                    <FontAwesomeIcon icon={faPassport} />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0a192f]">IMMIGRATION</h3>
+                </Link>
+              </AnimatedSection>
+
+              <AnimatedSection delay="0.5s">
+                <Link href="#area-general" className="practice-card bg-gray-50 p-8 rounded-lg hover:shadow-xl transition duration-300 text-center block">
+                  <div className="practice-icon text-4xl text-[#0a192f] mb-4">
+                    <FontAwesomeIcon icon={faBookReader} />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0a192f]">GENERAL LITIGATION</h3>
+                </Link>
+              </AnimatedSection>
             </div>
           </div>
         </section>
@@ -58,19 +169,35 @@ const PracticeAreasPage = () => {
                 <div className="w-16 h-1 bg-[#D4AF37] mb-6"></div>
                 <p className="text-gray-600 mb-6">Facing criminal charges can be a daunting experience. Our strategic criminal defense team is dedicated to protecting your rights at every stage of the legal process. We provide robust representation from investigation and bail applications through to trial and appeals.</p>
                 <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-start"><i className="fas fa-check-circle text-[#D4AF37] mt-1 mr-3"></i><span>Bail & Remand Proceedings</span></li>
-                  <li className="flex items-start"><i className="fas fa-check-circle text-[#D4AF37] mt-1 mr-3"></i><span>Trial Representation in Magistrates&#39;, Sessions&#39;, &amp; High Court</span></li>
-                  <li className="flex items-start"><i className="fas fa-check-circle text-[#D4AF37] mt-1 mr-3"></i><span>Appeals to Higher Courts</span></li>
+                  <li className="flex items-start">
+                    <FontAwesomeIcon icon={faCheckCircle} className="text-[#D4AF37] mt-1 mr-3" />
+                    <span>Bail & Remand Proceedings</span>
+                  </li>
+                  <li className="flex items-start">
+                    <FontAwesomeIcon icon={faCheckCircle} className="text-[#D4AF37] mt-1 mr-3" />
+                    <span>Trial Representation in Magistrates&#39;, Sessions&#39;, &amp; High Court</span>
+
+                  </li>
+                  <li className="flex items-start">
+                    <FontAwesomeIcon icon={faCheckCircle} className="text-[#D4AF37] mt-1 mr-3" />
+                    <span>Appeals to Higher Courts</span>
+                  </li>
                 </ul>
               </div>
               <div className="tilt-card shadow-xl rounded-lg overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=870" alt="Criminal Defense" width={870} height={580} className="w-full h-auto" />
+                <Image 
+                  src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=870" 
+                  alt="Criminal Defense" 
+                  width={870} 
+                  height={580} 
+                  className="w-full h-auto" 
+                />
               </div>
             </div>
           </AnimatedSection>
         </section>
 
-        <section id="area-family" className="py-20 bg-white scroll-mt-24">
+          <section id="area-family" className="py-20 bg-white scroll-mt-24">
           <AnimatedSection className="container mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="md:order-last">
@@ -290,10 +417,16 @@ const PracticeAreasPage = () => {
             </AnimatedSection>
         </section>
 
-        <section className="relative text-white" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1593115057322-e94b77572f20?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
+
+        <section className="relative text-white" style={{
+          backgroundImage: "url('https://images.unsplash.com/photo-1593115057322-e94b77572f20?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}>
           <div className="absolute inset-0 bg-[#0a192f] opacity-80"></div>
           <AnimatedSection className="relative container mx-auto px-6 py-20 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to find a solution? Let&#39;s talk.</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to find a solution? Let's talk.</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Our team is ready to assist you with your legal needs. Schedule a consultation today.</p>
             <Link href="/contact" className="bg-[#D4AF37] hover:bg-yellow-400 text-[#0a192f] font-bold px-8 py-3 rounded-md text-lg transition duration-300 inline-block">Schedule a Consultation</Link>
           </AnimatedSection>
