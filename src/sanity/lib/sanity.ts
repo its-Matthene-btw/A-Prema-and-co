@@ -87,38 +87,7 @@ export async function getAboutPage() {
 
 // Add these two functions to your existing Sanity library file
 
-export async function getAllArticles() {
-  const query = `*[_type == "article"] | order(publishedAt desc) {
-    _id,
-    title,
-    "slug": slug.current,
-    featuredMedia, // Changed from mainImage
-    excerpt,
-    publishedAt,
-    "author": author->{ name },
-    "categories": categories[]->{ title }
-  }`;
-  
-  const data = await client.fetch(query);
-  return data;
-}
 
-export async function getArticleBySlug(slug: string) {
-  const query = `*[_type == "article" && slug.current == $slug][0]{
-    _id,
-    title,
-    "slug": slug.current,
-    featuredMedia, // Changed from mainImage
-    excerpt,
-    publishedAt,
-    "author": author->{ name, "slug": slug.current, image },
-    "categories": categories[]->{ title },
-    body,
-  }`;
-  
-  const data = await client.fetch(query, { slug });
-  return data;
-}
 
 export async function getAllCategories() {
   const query = `*[_type == "category"]{
