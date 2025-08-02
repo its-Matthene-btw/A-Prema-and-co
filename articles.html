@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles & Legal Insights | A. PREMA & CO</title>
+    <meta name="description" content="Explore a collection of articles and expert legal analysis from the team at A. PREMA & CO on a wide range of topics.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333333;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #D4AF37;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-[#0a192f] font-playfair">
+                <span class="gold-underline">A. PREMA & CO</span>
+            </a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-[#0a192f] hover:text-[#D4AF37]">Home</a>
+                    <a href="about.html" class="nav-link text-[#0a192f] hover:text-[#D4AF37]">About Us</a>
+                    <a href="practice-areas.html" class="nav-link text-[#0a192f] hover:text-[#D4AF37]">Practice Areas</a>
+                    <a href="contact.html" class="nav-link text-[#0a192f] hover:text-[#D4AF37]">Contact Us</a>
+                </nav>
+                <div class="hidden md:block">
+                    <a href="contact.html" class="bg-[#D4AF37] hover:bg-[#c19e30] text-white px-6 py-2 rounded-md transition duration-300">Get in Touch</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-[#0a192f] focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="md:hidden fixed inset-0 bg-[#0a192f] bg-opacity-90 z-40 flex items-center justify-center hidden" id="mobileMenu">
+        <div class="text-center">
+            <a href="index.html" class="block text-white text-xl py-4 hover:text-[#D4AF37] transition">Home</a>
+            <a href="about.html" class="block text-white text-xl py-4 hover:text-[#D4AF37] transition">About Us</a>
+            <a href="practice-areas.html" class="block text-white text-xl py-4 hover:text-[#D4AF37] transition">Practice Areas</a>
+            <a href="contact.html" class="block text-white text-xl py-4 hover:text-[#D4AF37] transition">Contact Us</a>
+            <a href="contact.html" class="inline-block mt-6 bg-[#D4AF37] hover:bg-[#c19e30] text-white px-6 py-2 rounded-md transition duration-300">Get in Touch</a>
+        </div>
+    </div>
+
+    <main>
+<section class="relative text-white" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1500&q=80'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="absolute inset-0 bg-[#0a192f] opacity-80"></div>
+
+    <div class="relative container mx-auto px-6 pt-32 pb-16 md:pt-40 md:pb-24 text-center fade-in">
+        <h1 class="text-4xl md:text-6xl font-bold text-white">Legal Insights & Articles</h1>
+        <p class="text-xl text-gray-300 mt-4 max-w-3xl mx-auto">Explore our collection of articles for expert analysis on a wide range of legal topics and current events.</p>
+    </div>
+</section>
+
+        <section class="py-6 bg-white border-b border-gray-200 sticky top-[72px] z-40 backdrop-blur-sm bg-white/80">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <div class="flex-wrap items-center gap-2 hidden md:flex">
+                        <button class="bg-[#0a192f] text-white px-4 py-2 rounded-md text-sm font-semibold">All Topics</button>
+                        <button class="bg-gray-100 text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-md text-sm font-semibold transition">Property Law</button>
+                        <button class="bg-gray-100 text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-md text-sm font-semibold transition">Civil Litigation</button>
+                        <button class="bg-gray-100 text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-md text-sm font-semibold transition">Criminal Defense</button>
+                        <button class="bg-gray-100 text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-md text-sm font-semibold transition">Corporate Law</button>
+                    </div>
+                    <div class="relative flex-grow md:flex-grow-0 md:w-72">
+                        <input type="search" placeholder="Search articles..." class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37] transition">
+                        <i class="fas fa-search absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="fade-in">
+                        <a href="article-single.html" class="block bg-gray-50 rounded-lg shadow-md overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800" alt="Article on property law" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"></div>
+                            <div class="p-6">
+                                <p class="text-sm text-[#D4AF37] font-semibold mb-2">PROPERTY LAW</p>
+                                <h3 class="text-xl font-bold text-[#0a192f] mb-3 group-hover:text-[#D4AF37] transition-colors">Navigating Sale and Purchase Agreements in 2025</h3>
+                                <p class="text-gray-600 text-sm mb-4 h-20 overflow-hidden">Discover the key clauses and potential pitfalls to be aware of when buying or selling property in the current market.</p>
+                                <div class="border-t border-gray-200 pt-3 mt-3 text-xs text-gray-500 flex justify-between items-center">
+                                    <span>By Prema Arunasalam</span>
+                                    <span>July 26, 2025</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="fade-in" style="transition-delay: 0.1s;">
+                         <a href="article-single.html" class="block bg-gray-50 rounded-lg shadow-md overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800" alt="Article on civil litigation" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"></div>
+                            <div class="p-6">
+                                <p class="text-sm text-[#D4AF37] font-semibold mb-2">CIVIL LITIGATION</p>
+                                <h3 class="text-xl font-bold text-[#0a192f] mb-3 group-hover:text-[#D4AF37] transition-colors">The Importance of Early Mediation in Contract Disputes</h3>
+                                <p class="text-gray-600 text-sm mb-4 h-20 overflow-hidden">Learn how engaging in mediation at an early stage can save time, reduce costs, and preserve business relationships.</p>
+                                <div class="border-t border-gray-200 pt-3 mt-3 text-xs text-gray-500 flex justify-between items-center">
+                                    <span>By Ms Laviania P.</span>
+                                    <span>July 22, 2025</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="fade-in" style="transition-delay: 0.2s;">
+                         <a href="article-single.html" class="block bg-gray-50 rounded-lg shadow-md overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1519099430339-a68d14a51e5e?auto=format&fit=crop&w=800" alt="Article on criminal defense" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"></div>
+                            <div class="p-6">
+                                <p class="text-sm text-[#D4AF37] font-semibold mb-2">CRIMINAL DEFENSE</p>
+                                <h3 class="text-xl font-bold text-[#0a192f] mb-3 group-hover:text-[#D4AF37] transition-colors">Understanding Your Rights During a Police Investigation</h3>
+                                <p class="text-gray-600 text-sm mb-4 h-20 overflow-hidden">A critical overview of the fundamental rights every citizen should be aware of when interacting with law enforcement.</p>
+                                <div class="border-t border-gray-200 pt-3 mt-3 text-xs text-gray-500 flex justify-between items-center">
+                                    <span>By Prema Arunasalam</span>
+                                    <span>July 15, 2025</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="fade-in">
+                        <a href="article-single.html" class="block bg-gray-50 rounded-lg shadow-md overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800" alt="Article on Employment Law" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"></div>
+                            <div class="p-6">
+                                <p class="text-sm text-[#D4AF37] font-semibold mb-2">EMPLOYMENT LAW</p>
+                                <h3 class="text-xl font-bold text-[#0a192f] mb-3 group-hover:text-[#D4AF37] transition-colors">Constructive Dismissal: What Employees Need to Know</h3>
+                                <p class="text-gray-600 text-sm mb-4 h-20 overflow-hidden">Are you being forced to resign? Understand the legal concept of constructive dismissal and what steps you can take.</p>
+                                <div class="border-t border-gray-200 pt-3 mt-3 text-xs text-gray-500 flex justify-between items-center">
+                                    <span>By Ms Laviania P.</span>
+                                    <span>July 10, 2025</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="fade-in" style="transition-delay: 0.1s;">
+                         <a href="article-single.html" class="block bg-gray-50 rounded-lg shadow-md overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1549421213-2d23c1044325?auto=format&fit=crop&w=800" alt="Article on corporate law" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"></div>
+                            <div class="p-6">
+                                <p class="text-sm text-[#D4AF37] font-semibold mb-2">CORPORATE LAW</p>
+                                <h3 class="text-xl font-bold text-[#0a192f] mb-3 group-hover:text-[#D4AF37] transition-colors">Directors' Duties and Liabilities in Malaysia</h3>
+                                <p class="text-gray-600 text-sm mb-4 h-20 overflow-hidden">A primer for new and experienced company directors on their legal obligations under the Companies Act 2016.</p>
+                                <div class="border-t border-gray-200 pt-3 mt-3 text-xs text-gray-500 flex justify-between items-center">
+                                    <span>By Prema Arunasalam</span>
+                                    <span>July 05, 2025</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="fade-in" style="transition-delay: 0.2s;">
+                         <a href="article-single.html" class="block bg-gray-50 rounded-lg shadow-md overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1542317543-c24a7f45903b?auto=format&fit=crop&w=800" alt="Article on family law" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"></div>
+                            <div class="p-6">
+                                <p class="text-sm text-[#D4AF37] font-semibold mb-2">FAMILY LAW</p>
+                                <h3 class="text-xl font-bold text-[#0a192f] mb-3 group-hover:text-[#D4AF37] transition-colors">The Process of Filing for Divorce in Malaysia</h3>
+                                <p class="text-gray-600 text-sm mb-4 h-20 overflow-hidden">An overview of the legal steps involved in both joint and single divorce petitions, from filing to decree absolute.</p>
+                                <div class="border-t border-gray-200 pt-3 mt-3 text-xs text-gray-500 flex justify-between items-center">
+                                    <span>By Prema Arunasalam</span>
+                                    <span>June 28, 2025</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-16 flex justify-center items-center space-x-2 fade-in">
+                    <a href="#" class="px-4 py-2 border border-gray-300 text-gray-500 rounded-md hover:bg-gray-100">&laquo; Previous</a>
+                    <a href="#" class="px-4 py-2 border border-[#0a192f] bg-[#0a192f] text-white rounded-md">1</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-100">2</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-100">3</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-100">Next &raquo;</a>
+                </div>
+            </div>
+        </section>
+
+       
+        <section class="relative text-white" style="background-image: url('https://images.unsplash.com/photo-1593115057322-e94b77572f20?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="absolute inset-0 bg-[#0a192f] opacity-80"></div>
+
+    <div class="relative container mx-auto px-6 py-20 text-center fade-in">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Have a Legal Question?</h2>
+        <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">If you're facing a legal issue, don't navigate it alone. Our team is ready to provide the expert guidance you need.</p>
+        <a href="contact.html" class="bg-[#D4AF37] hover:bg-yellow-400 text-[#0a192f] font-bold px-8 py-3 rounded-md text-lg transition duration-300 inline-block">Schedule a Consultation</a>
+    </div>
+</section>
+    </main>
+
+    <footer class="bg-[#0a192f] text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">A. PREMA & CO</h3>
+                    <p class="text-gray-300">Advocates & Solicitors you can trust for innovative and effective legal solutions.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Address</h3>
+                    <p class="text-gray-300">10-1, Jalan PJS 2D/1, Taman Medan, 46000 Petaling Jaya, Selangor</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <p class="text-gray-300 mb-2">Email: advocprema@gmail.com</p>
+                    <p class="text-gray-300">Phone: 012 922 8735 / 03 7499 5446</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-[#D4AF37] transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-[#D4AF37] transition">About Us</a></li>
+                        <li><a href="practice-areas.html" class="text-gray-300 hover:text-[#D4AF37] transition">Practice Areas</a></li>
+                        <li><a href="our-team.html" class="text-gray-300 hover:text-[#D4AF37] transition">Our Team</a></li>
+                        <li><a href="articles.html" class="text-gray-300 hover:text-[#D4AF37] transition">Articles</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-[#D4AF37] transition">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>© 2025 A. PREMA & CO. All Rights Reserved. | <a href="#" class="hover:text-[#D4AF37] transition">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Mobile Menu Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+            });
+
+            // --- Close mobile menu when clicking a link ---
+            document.querySelectorAll('#mobileMenu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                });
+            });
+
+            // --- Scroll animation ---
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
