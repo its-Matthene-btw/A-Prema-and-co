@@ -8,8 +8,24 @@ import ContactForm from '@/app/components/ContactForm';
 import { getFeaturedAdvocates } from '@/sanity/lib/sanity';
 import SanityImage from '@/app/components/SanityImage';
 
+interface SanityImage {
+  _type: 'image';
+  asset: {
+    _ref: string;
+    _type: 'reference';
+  };
+}
+
+interface Advocate {
+  _id: string;
+  name: string;
+  position: string;
+  image: SanityImage;
+  slug: { current: string };
+}
+
 export default function Home() {
-  const [featuredAdvocates, setFeaturedAdvocates] = useState<any[]>([]);
+  const [featuredAdvocates, setFeaturedAdvocates] = useState<Advocate[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -18,7 +34,7 @@ export default function Home() {
       try {
         const advocates = await getFeaturedAdvocates();
         setFeaturedAdvocates(advocates);
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error("Failed to load advocates:", err);
         setError("Could not load team profiles. Please check the connection or try again later.");
       } finally {
@@ -106,12 +122,12 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               <AnimatedSection className="bg-white p-8 rounded-lg shadow-md text-center tilt-card">
                 <div className="text-5xl text-[#D4AF37] mb-6"><i className="fas fa-user-tie"></i></div>
-                <h3 className="text-2xl font-bold text-[#0a192f] mb-4">All About "YOU"</h3>
+                <h3 className="text-2xl font-bold text-[#0a192f] mb-4">All About &quot;YOU&quot;</h3>
                 <p className="text-gray-600">We will assist you in all legal way by listing the best solution for you. Your needs and objectives are at the center of everything we do.</p>
               </AnimatedSection>
               <AnimatedSection className="bg-white p-8 rounded-lg shadow-md text-center tilt-card" delay="0.2s">
                 <div className="text-5xl text-[#D4AF37] mb-6"><i className="fas fa-hands-helping"></i></div>
-                <h3 className="text-2xl font-bold text-[#0a192f] mb-4">We "Walk the Talk"</h3>
+                <h3 className="text-2xl font-bold text-[#0a192f] mb-4">We &quot;Walk the Talk&quot;</h3>
                 <p className="text-gray-600">We represent words with action. Our commitments are backed by diligent work and measurable results that you can count on.</p>
               </AnimatedSection>
               <AnimatedSection className="bg-white p-8 rounded-lg shadow-md text-center tilt-card" delay="0.4s">
@@ -233,7 +249,7 @@ export default function Home() {
         <section className="relative text-white" style={{backgroundImage: "url('https://images.unsplash.com/photo-1593115057322-e94b77572f20?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}>
           <div className="absolute inset-0 bg-[#0a192f] opacity-80"></div>
           <AnimatedSection className="relative container mx-auto px-6 py-20 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to find a solution? Let's talk.</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to find a solution? Let&apos;s talk.</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Our team is ready to assist you with your legal needs. Schedule a consultation today.</p>
             <Link href="/contact" className="bg-[#D4AF37] hover:bg-yellow-400 text-[#0a192f] font-bold px-8 py-3 rounded-md text-lg transition duration-300 inline-block">Schedule a Consultation</Link>
           </AnimatedSection>

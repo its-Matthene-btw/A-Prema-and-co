@@ -1,54 +1,63 @@
 import { notFound } from 'next/navigation';
-import type { Metadata } from 'next';
-import { ResolvingMetadata } from 'next';
+import type { Metadata, ResolvingMetadata } from 'next';
 import Link from 'next/link';
 import { getArticleBySlug } from '@/sanity/lib/sanity';
 import SanityImage from '@/app/components/SanityImage';
 import { ArticlePortableText } from '@/app/components/ArticlePortableText';
 
-// Helper function to convert YouTube/Vimeo URLs to embeddable URLs
-function getEmbedUrl(url: string | undefined) {
+// Helper function for video embed URLs
+const getEmbedUrl = (url: string | undefined): string => {
     if (!url) return '';
-    if (url.includes('youtube.com/watch?v=')) {
-        const videoId = url.split('v=')[1]?.split('&')[0];
-        return `https://www.youtube.com/embed/${videoId}?modestbranding=1&rel=0`;
-    }
-    if (url.includes('youtu.be/')) {
-        const videoId = url.split('/').pop();
-        return `https://www.youtube.com/embed/${videoId}?modestbranding=1&rel=0`;
-    }
-    if (url.includes('vimeo.com/')) {
-        const videoId = url.split('/').pop();
-        return `https://player.vimeo.com/video/${videoId}?title=0&byline=0&portrait=0`;
-    }
-    return url;
-}
+    
+    try {
+        const youtubeMatch = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
+        if (youtubeMatch) {
+            return `https://www.youtube.com/embed/${youtubeMatch[1]}?modestbranding=1&rel=0`;
+        }
 
-// Local date formatting function
-function formatDate(dateString: string): string {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-    });
-}
+        const vimeoMatch = url.match(/(?:vimeo\.com\/|player\.vimeo\.com\/video\/)([0-9]+)/);
+        if (vimeoMatch) {
+            return `https://player.vimeo.com/video/${vimeoMatch[1]}?title=0&byline=0&portrait=0`;
+        }
 
-export async function generateMetadata(
-  { params }: { params: { slug: string } },
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+        return url;
+    } catch {
+        return '';
+    }
+};
+
+// Date formatting
+const formatDate = (dateString: string): string => {
+    try {
+        return new Date(dateString).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+    } catch {
+        return dateString;
+    }
+};
+
+export async function generateMetadata({
+    params 
+}: { 
+    params: { slug: string } 
+}): Promise<Metadata> {
     const article = await getArticleBySlug(params.slug);
     if (!article) return { title: 'Not Found' };
-    
+
+    const featuredImage = article.featuredMedia?.mediaType === 'Image' 
+        ? article.featuredMedia.image.asset.url 
+        : null;
+
     return {
         title: `${article.title} | A. Prema & Co`,
         description: article.excerpt,
         openGraph: {
             title: article.title,
             description: article.excerpt,
-            images: article.featuredMedia?.mediaType === 'Image' ? 
-                [{ url: article.featuredMedia.image.asset.url }] : [],
+            images: featuredImage ? [featuredImage] : [],
             type: 'article',
             publishedTime: article.publishedAt,
             authors: [article.author.name],
@@ -60,18 +69,15 @@ interface ArticlePageProps {
     params: {
         slug: string;
     };
+    searchParams: { [key: string]: string | string[] | undefined };
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
     const article = await getArticleBySlug(params.slug);
-
-    if (!article) {
-        notFound();
-        return null;
-    }
+    if (!article) notFound();
 
     const readingTime = Math.ceil(JSON.stringify(article.body).length / 5 / 250);
-    const { featuredMedia } = article;
+    const primaryCategory = article.categories?.[0]?.title?.toUpperCase() || 'ARTICLE';
 
     return (
         <main className="bg-white">
@@ -90,7 +96,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                         </Link>
                         
                         <span className="inline-block text-xs font-semibold text-[#D4AF37] tracking-wider uppercase mb-2">
-                            {article.categories?.[0]?.title?.toUpperCase() || 'ARTICLE'}
+                            {primaryCategory}
                         </span>
                         
                         <h1 className="text-3xl md:text-4xl font-bold text-[#0a192f] mt-2 mb-6 leading-tight">
@@ -123,28 +129,26 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </section>
 
             {/* Featured Media */}
-            {featuredMedia && (
+            {article.featuredMedia && (
                 <section className="pb-8 md:pb-12">
                     <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-                        {featuredMedia.mediaType === 'Image' && featuredMedia.image && (
+                        {article.featuredMedia.mediaType === 'Image' ? (
                             <div className="rounded-sm overflow-hidden shadow-md">
                                 <SanityImage 
-                                    image={featuredMedia.image} 
-                                    alt={featuredMedia.image.alt || article.title}
+                                    image={article.featuredMedia.image} 
+                                    alt={article.featuredMedia.image.alt || article.title}
                                     className="w-full h-auto object-cover"
                                 />
-                                {featuredMedia.image.caption && (
+                                {article.featuredMedia.image.caption && (
                                     <p className="text-xs text-gray-500 mt-2 px-2">
-                                        {featuredMedia.image.caption}
+                                        {article.featuredMedia.image.caption}
                                     </p>
                                 )}
                             </div>
-                        )}
-                        
-                        {featuredMedia.mediaType === 'Video Embed' && featuredMedia.videoUrl && (
+                        ) : article.featuredMedia.mediaType === 'Video Embed' && article.featuredMedia.videoUrl ? (
                             <div className="relative pb-[56.25%] rounded-sm overflow-hidden shadow-md bg-black">
                                 <iframe 
-                                    src={getEmbedUrl(featuredMedia.videoUrl)} 
+                                    src={getEmbedUrl(article.featuredMedia.videoUrl)} 
                                     title={`Video: ${article.title}`}
                                     className="absolute top-0 left-0 w-full h-full"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -152,7 +156,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                                     loading="lazy"
                                 />
                             </div>
-                        )}
+                        ) : null}
                     </div>
                 </section>
             )}
