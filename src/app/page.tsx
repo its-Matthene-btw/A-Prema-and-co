@@ -1,11 +1,33 @@
 "use client";
 
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import AnimatedSection from '@/app/components/AnimatedSection';
 import ContactForm from '@/app/components/ContactForm';
+import { getFeaturedAdvocates } from '@/sanity/lib/sanity';
+import SanityImage from '@/app/components/SanityImage';
 
 export default function Home() {
+  const [featuredAdvocates, setFeaturedAdvocates] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function loadAdvocates() {
+      try {
+        const advocates = await getFeaturedAdvocates();
+        setFeaturedAdvocates(advocates);
+      } catch (err: any) {
+        console.error("Failed to load advocates:", err);
+        setError("Could not load team profiles. Please check the connection or try again later.");
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadAdvocates();
+  }, []);
+
   return (
     <>
       <main>
@@ -36,7 +58,14 @@ export default function Home() {
             <div className="md:hidden w-4/5 mx-auto h-px bg-[#D4AF37] my-8 opacity-50"></div>
             <div className="relative md:w-2/5 right-content-panel py-16 md:py-0 md:h-auto min-h-[50vh]">
               <div className="hidden md:block absolute left-0 top-0 h-full w-px bg-[#D4AF37] opacity-50"></div>
-              <Image src="/2.png" alt="Statue of Lady Justice" width={500} height={800} className="lady-justice-image" priority />
+              <Image 
+                src="/2.png" 
+                alt="Statue of Lady Justice" 
+                width={500} 
+                height={800} 
+                className="lady-justice-image" 
+                priority 
+              />
             </div>
           </div>
         </section>
@@ -50,12 +79,18 @@ export default function Home() {
             </AnimatedSection>
             <AnimatedSection className="flex flex-col md:flex-row items-center">
               <div className="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                <p className="text-lg mb-6">A. Prema & Co began its journey in 2018 with the vision to provide quality legal services to the community. Founded by Prema Arunasalam, the firm has grown steadily, adding Ms. Laviania Pathmanathan as a partner in 2025.</p>
+                <p className="text-lg mb-6">A. Prema & Co began its journey in 2018 with the vision to provide quality legal services to the community. Founded by Prema Arunasalam, the firm has grown steadily, adding Ms. Laviania Pathmanathan as a partner this year.</p>
                 <p className="text-lg mb-6">Our firm is located at 10-1, Jalan PJS 2D/1, Taman Medan, 46000 Petaling Jaya, Selangor, where we serve clients with dedication and professionalism.</p>
                 <p className="text-lg">We believe in building lasting relationships with our clients by providing personalized attention and tailored legal solutions for each unique situation.</p>
               </div>
               <div className="md:w-1/2 shadow-xl rounded-lg overflow-hidden tilt-card">
-                <Image src="https://images.unsplash.com/photo-1505663912202-ac22d4cb3707?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Law Office" width={1170} height={780} className="w-full h-auto" />
+                <Image 
+                  src="https://images.unsplash.com/photo-1505663912202-ac22d4cb3707?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                  alt="Law Office" 
+                  width={1170} 
+                  height={780} 
+                  className="w-full h-auto" 
+                />
               </div>
             </AnimatedSection>
           </div>
@@ -142,44 +177,55 @@ export default function Home() {
               <div className="w-20 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">Meet our dedicated team of legal professionals committed to serving your needs.</p>
             </AnimatedSection>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <AnimatedSection className="team-card bg-white rounded-lg overflow-hidden shadow-md relative">
-                <Image src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Prema Arunasalam" width={688} height={860} className="w-full h-80 object-cover" />
-                <div className="team-overlay">
-                  <h3 className="text-2xl font-bold mb-2">Prema Arunasalam</h3>
-                  <p className="text-[#D4AF37] mb-4">Founder & Advocate</p>
-                  <Link href="/our-team/prema-arunasalam" className="text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-[#0a192f] transition">View Profile</Link>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#0a192f] mb-2">Prema Arunasalam</h3>
-                  <p className="text-[#D4AF37] mb-4">Founder & Advocate</p>
-                </div>
-              </AnimatedSection>
-              <AnimatedSection className="team-card bg-white rounded-lg overflow-hidden shadow-md relative" delay="0.2s">
-                <Image src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ms Laviania Pathmanathan" width={1470} height={980} className="w-full h-80 object-cover" />
-                <div className="team-overlay">
-                  <h3 className="text-2xl font-bold mb-2">Ms Laviania Pathmanathan</h3>
-                  <p className="text-[#D4AF37] mb-4">Partner & Solicitor</p>
-                  <Link href="/our-team/laviania-pathmanathan" className="text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-[#0a192f] transition">View Profile</Link>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#0a192f] mb-2">Ms Laviania Pathmanathan</h3>
-                  <p className="text-[#D4AF37] mb-4">Partner & Solicitor</p>
-                </div>
-              </AnimatedSection>
-              <AnimatedSection className="team-card bg-white rounded-lg overflow-hidden shadow-md relative" delay="0.4s">
-                <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Prakash Ravi" width={687} height={859} className="w-full h-80 object-cover" />
-                <div className="team-overlay">
-                  <h3 className="text-2xl font-bold mb-2">Prakash Ravi</h3>
-                  <p className="text-[#D4AF37] mb-4">Chambering Student</p>
-                  <Link href="/our-team/prakash-ravi" className="text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-[#0a192f] transition">View Profile</Link>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#0a192f] mb-2">Prakash Ravi</h3>
-                  <p className="text-[#D4AF37] mb-4">Chambering Student</p>
-                </div>
-              </AnimatedSection>
-            </div>
+            
+            {loading ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="bg-white rounded-lg overflow-hidden shadow-md h-96 animate-pulse"></div>
+                ))}
+              </div>
+            ) : error ? (
+              <div className="text-center text-red-500 bg-red-100 p-4 rounded-lg">
+                <p className="font-bold">An Error Occurred</p>
+                <p>{error}</p>
+              </div>
+            ) : featuredAdvocates.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {featuredAdvocates.map((advocate, index) => (
+                  <AnimatedSection 
+                    key={advocate._id}
+                    className="team-card bg-white rounded-lg overflow-hidden shadow-md"
+                    delay={`${index * 0.2}s`}
+                  >
+                    <div className="relative">
+                      <SanityImage
+                        image={advocate.image}
+                        alt={advocate.name}
+                        className="w-full h-72 object-cover"
+                      />
+                      <div className="team-overlay">
+                        <h3 className="text-2xl font-bold mb-2">{advocate.name}</h3>
+                        <p className="text-[#D4AF37] mb-4">{advocate.position}</p>
+                        <Link 
+                          href={`/our-team/${advocate.slug.current}`}
+                          className="text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-[#0a192f] transition"
+                        >
+                          View Profile
+                        </Link>
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-[#0a192f] mb-2">{advocate.name}</h3>
+                      <p className="text-[#D4AF37] mb-4">{advocate.position}</p>
+                    </div>
+                  </AnimatedSection>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center text-gray-500 bg-gray-100 p-4 rounded-lg">
+                <p>No featured team profiles are available at this time.</p>
+              </div>
+            )}
           </div>
         </section>
 

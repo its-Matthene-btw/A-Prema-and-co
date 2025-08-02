@@ -12,7 +12,7 @@ const PracticeAreasPage = () => {
         <section
           className="relative text-white"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1500&q=80')",
+            backgroundImage: "url(&#39;https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&amp;fit=crop&amp;w=1500&amp;q=80&#39;)",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundAttachment: 'fixed',
@@ -59,7 +59,7 @@ const PracticeAreasPage = () => {
                 <p className="text-gray-600 mb-6">Facing criminal charges can be a daunting experience. Our strategic criminal defense team is dedicated to protecting your rights at every stage of the legal process. We provide robust representation from investigation and bail applications through to trial and appeals.</p>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-start"><i className="fas fa-check-circle text-[#D4AF37] mt-1 mr-3"></i><span>Bail & Remand Proceedings</span></li>
-                  <li className="flex items-start"><i className="fas fa-check-circle text-[#D4AF37] mt-1 mr-3"></i><span>Trial Representation in Magistrates', Sessions', & High Court</span></li>
+                  <li className="flex items-start"><i className="fas fa-check-circle text-[#D4AF37] mt-1 mr-3"></i><span>Trial Representation in Magistrates&#39;, Sessions&#39;, &amp; High Court</span></li>
                   <li className="flex items-start"><i className="fas fa-check-circle text-[#D4AF37] mt-1 mr-3"></i><span>Appeals to Higher Courts</span></li>
                 </ul>
               </div>
@@ -96,7 +96,7 @@ const PracticeAreasPage = () => {
                     <div>
                         <h3 className="text-3xl font-bold text-[#0a192f] mb-4">Accident & Disability Claims</h3>
                         <div className="w-16 h-1 bg-[#D4AF37] mb-6"></div>
-                        <p className="text-gray-600 mb-6">If you've been injured due to negligence, we are here to help you secure the compensation you deserve. We manage all aspects of personal injury claims, from motor vehicle accidents to workplace injuries, ensuring your focus remains on recovery.</p>
+                        <p className="text-gray-600 mb-6">If you&#39;ve been injured due to negligence, we are here to help you secure the compensation you deserve. We manage all aspects of personal injury claims, from motor vehicle accidents to workplace injuries, ensuring your focus remains on recovery.</p>
                         <ul className="space-y-3 text-gray-600">
                             <li className="flex items-start"><i className="fas fa-check-circle text-[#D4AF37] mt-1 mr-3"></i><span>Motor Vehicle Accident Claims</span></li>
                             <li className="flex items-start"><i className="fas fa-check-circle text-[#D4AF37] mt-1 mr-3"></i><span>Workplace Injury and SOCSO Claims</span></li>
@@ -293,7 +293,7 @@ const PracticeAreasPage = () => {
         <section className="relative text-white" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1593115057322-e94b77572f20?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
           <div className="absolute inset-0 bg-[#0a192f] opacity-80"></div>
           <AnimatedSection className="relative container mx-auto px-6 py-20 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to find a solution? Let's talk.</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to find a solution? Let&#39;s talk.</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Our team is ready to assist you with your legal needs. Schedule a consultation today.</p>
             <Link href="/contact" className="bg-[#D4AF37] hover:bg-yellow-400 text-[#0a192f] font-bold px-8 py-3 rounded-md text-lg transition duration-300 inline-block">Schedule a Consultation</Link>
           </AnimatedSection>

@@ -1,7 +1,5 @@
 "use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
 import AnimatedSection from '@/app/components/AnimatedSection';
 import ContactForm from '@/app/components/ContactForm';
 import FaqAccordion from '@/app/components/FaqAccordion';
